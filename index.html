@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Royal Mechanica — Exchange Hall</title>
+  <script src="assets/sources.js"></script>
+  <script src="assets/app-bundle_mtyryq6c.js"></script>
+  <script src="assets/qr-code-styling.js"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-title">BUILDING THE EXCHANGE HALL</div>
+      <div class="loading-sub">PLEASE WAIT<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+      <div class="loading-bar">
+        <div class="loading-bar-fill" id="loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INTRO / TITLE SCREEN ============ -->
+  <div id="intro-screen">
+    <div class="intro-inner">
+      <div class="rm-badge">RM</div>
+      <h1 class="intro-title">ROYAL MECHANICA</h1>
+      <div class="intro-subtitle">STOCK EXCHANGE HALL &middot; EST. 1929</div>
+      <div class="intro-scroll">
+        <span>SCROLL OR SWIPE TO OPEN THE DOORS</span>
+        <i class="ri-arrow-down-s-line bounce"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MAIN APP ============ -->
+  <div id="app" class="hidden">
+
+    <!-- 3D-ish scene viewport -->
+    <div class="scene-viewport" id="scene-viewport">
+      <img class="hall-bg" id="hall-bg" src="img/hall.png" alt="Royal Mechanica Exchange Hall">
+      <div class="vignette"></div>
+    </div>
+
+    <!-- Top info bar -->
+    <div class="topbar" id="topbar">
+      <div class="info-box" id="box-ny">
+        <span class="label">New York</span>
+        <span class="value" id="ny-time">--:--:--</span>
+      </div>
+      <div class="info-box" id="box-local">
+        <span class="label">Local</span>
+        <span class="value" id="local-time">--:--:--</span>
+      </div>
+      <div class="info-box" id="box-market">
+        <span class="label">Market</span>
+        <span class="value" id="market-status">CHECKING</span>
+      </div>
+      <div class="info-box session-box" id="box-session">
+        <span class="label">Session</span>
+        <span class="value" id="session-status">--</span>
+      </div>
+    </div>
+
+    <!-- Hint text -->
+    <div class="hint-text" id="hint-text">EXCHANGE HALL &middot; DRAG TO LOOK &middot; TAP A COUNTER TO WALK UP</div>
+
+    <!-- Bottom control bar -->
+    <div class="bottombar" id="bottombar">
+      <button class="ctrl-btn" id="btn-walk"><i class="ri-arrow-up-s-line"></i><span>WALK</span></button>
+      <button class="ctrl-btn" id="btn-back"><i class="ri-arrow-down-s-line"></i><span>BACK</span></button>
+      <button class="ctrl-btn icon-only" id="btn-left"><i class="ri-arrow-left-s-line"></i></button>
+      <button class="ctrl-btn icon-only" id="btn-right"><i class="ri-arrow-right-s-line"></i></button>
+      <button class="ctrl-btn" id="btn-vault"><span>VAULT DESK</span></button>
+      <button class="ctrl-btn" id="btn-lobby"><span>LOBBY</span></button>
+      <button class="ctrl-btn" id="btn-sound"><i class="ri-volume-up-line"
+          id="sound-icon"></i><span>SOUND</span></button>
+      <button class="ctrl-btn connect-btn connect-button" id="btn-connect"><span>CONNECT WALLET</span></button>
+    </div>
+
+    <!-- Welcome modal -->
+    <div class="modal-overlay" id="welcome-modal">
+      <div class="modal-box">
+        <h2 class="modal-title">WELCOME TO THE HALL</h2>
+        <p class="modal-main">
+          Each counter represents a different Mechanica agent.<br>
+          Walk up and ask it anything.
+        </p>
+        <p class="modal-sub">
+          Drag to look around. Tap a counter to walk up to it.<br>
+          The Vault Desk at the far end takes deposits.<br>
+          Use the lift or the staircase for the upper floor.
+        </p>
+        <button id="enter-btn">ENTER THE HALL</button>
+      </div>
+    </div>
+
+    <!-- Counter interaction panel (hidden until a counter is tapped) -->
+    <div class="counter-panel" id="counter-panel">
+      <div class="counter-panel-head">
+        <span id="counter-panel-title">$AAPL &middot; COUNTER 01</span>
+        <button id="counter-panel-close"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="counter-panel-body" id="counter-panel-body">
+        <p class="agent-msg">Ask the Mechanica agent at this counter anything.</p>
+      </div>
+      <div class="counter-panel-input">
+        <input type="text" id="counter-ask-input" placeholder="ASK...">
+        <button id="counter-ask-btn"><i class="ri-send-plane-fill"></i><span>ASK</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <SCript src="script.js"></SCript>
+</body>
+
+</html>
